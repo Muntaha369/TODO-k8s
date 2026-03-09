@@ -9,7 +9,8 @@ RUN npm install
 COPY . .
 
 ARG NEXT_PUBLIC_API_BASE_URL
-ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL 
+#should get the env before the build is run
 
 RUN npm run build
 
