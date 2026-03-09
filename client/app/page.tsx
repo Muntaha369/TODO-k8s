@@ -9,7 +9,9 @@ interface Todo {
   createdAt: string;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:5000/api/todos'
+  : '/api/todos';
 
 export default function TodosPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -18,6 +20,8 @@ export default function TodosPage() {
 
   useEffect(() => {
     fetchTodos();
+    console.log(API_BASE_URL)
+    console.log(process.env.NODE_ENV)
   }, []);
 
   const fetchTodos = async () => {

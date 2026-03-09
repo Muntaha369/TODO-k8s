@@ -27,14 +27,14 @@ services:
       - app-network
   
   frontend:
-    build:
-      context: ./client
-      args:
-        - NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api/todos # Always remember in next env should be passed at build stage if its not pass at the build stage it will ignore the env expossed after the build look once docker file to get the idea
+    build: ./client
     container_name: todo-frontend
     restart: always
     ports:
       - "3000:3000"
+    command: npm run dev
+    environment:
+      NODE_ENV: development #Not even necessary to pass
     depends_on:
       - backend
     networks:

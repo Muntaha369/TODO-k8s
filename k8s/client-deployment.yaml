@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-client
+  namespace: todo
+spec:
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: todo-client
+        image: muntaha69/todo-client:latest
+        ports:
+        - containerPort: 3000
+        env:
+          - name: NEXT_PUBLIC_API_BASE_URL
+            value: http://localhost:5000/api/todos
