@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Pulling latest changes from GitHub...'
+                echo 'Pulling latest changes from GitHub...' // just a trial
                 checkout scm
             }
         }
