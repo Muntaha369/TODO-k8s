@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - mongodb-deployment.yaml
+  - server-deployment.yaml
+  - client-deployment.yaml
+  - mongodb-service.yaml
+  - server-service.yaml
+  - client-service.yaml
+images:
+  - name: yourdockerhubname/backend
+    newTag: "1.0.0"      # image updater will auto-update this
+  - name: yourdockerhubname/frontend
+    newTag: "1.0.0"      # image updater will auto-update this
