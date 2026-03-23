@@ -115,10 +115,10 @@ export default function TodosPage() {
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-white text-purple-600 font-bold rounded-xl shadow-lg hover:bg-blue-500/90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 disabled:opacity-50"
+            className="px-6 py-3 bg-white text-purple-600 font-bold rounded-xl shadow-lg hover:bg-green-500/90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 disabled:opacity-50"
             disabled={!inputValue.trim()}
           >
-            Addd
+            Add
           </button>
         </form>
 
