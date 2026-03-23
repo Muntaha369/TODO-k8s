@@ -14,4 +14,4 @@ images:
   - name: muntaha69/todo-server
     newTag: "1.0.0"      # image updater will auto-update this
   - name: muntaha69/todo-client
-    newTag: "1.0.1"      # image updater will auto-update this
+    newTag: "1.0.2"      # image updater will auto-update this
