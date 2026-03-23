@@ -4,32 +4,24 @@ metadata:
   name: todo-image-updater
   namespace: argocd
 spec:
-  appName: todo                          # your ArgoCD app name
-  appNamespace: argocd
-  images:
-    - image: muntaha69/todo-client
-      alias: client
-      updateStrategy:
-        type: SemVer
-      writeBack:
-        method: git
-        git:
-          repoURL: https://github.com/Muntaha369/TODO-k8s.git
-          branch: main
-          credentials:
-            secret:
-              name: argocd-image-updater-git-creds
-              namespace: argocd
-    - image: muntaha69/todo-server
-      alias: server
-      updateStrategy:
-        type: SemVer
-      writeBack:
-        method: git
-        git:
-          repoURL: https://github.com/Muntaha369/TODO-k8s.git
-          branch: main
-          credentials:
-            secret:
-              name: argocd-image-updater-git-creds
-              namespace: argocd
+  namespace: argocd
+  commonUpdateSettings:
+    updateStrategy: semver
+  writeBackConfig:
+    method: git
+    gitConfig:
+      repository: https://github.com/Muntaha369/TODO-k8s.git
+      branch: main
+  applicationRefs:
+    - namePattern: todo          # must match your ArgoCD app name
+      images:
+        - alias: client
+          imageName: muntaha69/todo-client
+          manifestTargets:
+            kustomize:
+              name: muntaha69/todo-client    # must match name in kustomization.yaml
+        - alias: server
+          imageName: muntaha69/todo-server
+          manifestTargets:
+            kustomize:
+              name: muntaha69/todo-server    # must match name in kustomization.yaml
