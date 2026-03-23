@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: todo-server
-        image: muntaha69/todo-server:latest
+        image: muntaha69/todo-server
         ports:
         - containerPort: 5000
         env:
