@@ -8,7 +8,7 @@ resources:
   - server-service.yaml
   - client-service.yaml
 images:
-  - name: yourdockerhubname/backend
+  - name: muntaha69/todo-server
     newTag: "1.0.0"      # image updater will auto-update this
-  - name: yourdockerhubname/frontend
+  - name: muntaha69/todo-client
     newTag: "1.0.0"      # image updater will auto-update this
