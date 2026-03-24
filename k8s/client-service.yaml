@@ -6,6 +6,8 @@ metadata:
 spec:
   selector:
     app: client
+  type: NodePort
   ports:
   - port: 3000
     targetPort: 3000
+    nodeport: 30000
