@@ -12,14 +12,14 @@ pipeline {
                 script {
                     try {
                         // build and start containers
-                        sh 'docker compose up -d --build'
+                        sh 'docker-compose up -d --build'
 
                         // wait a few seconds for containers to stabilize
                         sleep(10)
 
                         // check if all containers are running (no exited/error state)
                         def result = sh(
-                            script: "docker compose ps --status exited | grep -c 'exited' || true",
+                            script: "docker-compose ps --status exited | grep -c 'exited' || true",
                             returnStdout: true
                         ).trim()
 
@@ -31,7 +31,7 @@ pipeline {
 
                     } finally {
                         // always bring down containers whether pass or fail
-                        sh 'docker compose down'
+                        sh 'docker-compose down'
                     }
                 }
             }
