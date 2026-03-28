@@ -1,0 +1,10 @@
+{
+  "client": {
+    "tag": "1.0.6",
+    "build": false
+  },
+  "server": {
+    "tag": "1.0.3",
+    "build": false
+  }
+}
