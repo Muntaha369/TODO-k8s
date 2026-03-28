@@ -40,9 +40,8 @@ pipeline {
         stage('Read Config') {
             steps {
                 script {
-                    def config = new groovy.json.JsonSlurper().parseText(
-                readFile('build-config.json')
-            )
+
+                    def config = readJSON file: 'build-config.json'
 
                     env.CLIENT_TAG = config.client.tag
                     env.SERVER_TAG = config.server.tag
