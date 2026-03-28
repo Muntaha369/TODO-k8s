@@ -59,8 +59,8 @@ pipeline {
             steps {
                 sh """
                     echo $DOCKER_HUB_CREDS_PSW | docker login -u $DOCKER_HUB_CREDS_USR --password-stdin
-                    docker build -t muntaha69/todo-client:${env.CLIENT_TAG} ./client
-                    docker push muntaha69/todo-client:${env.CLIENT_TAG}
+                    docker build -t $DOCKER_HUB_CREDS_USR/todo-client:${env.CLIENT_TAG} ./client
+                    docker push $DOCKER_HUB_CREDS_USR/todo-client:${env.CLIENT_TAG}
                 """
             }
         }
@@ -70,8 +70,8 @@ pipeline {
             steps {
                 sh """
                     echo $DOCKER_HUB_CREDS_PSW | docker login -u $DOCKER_HUB_CREDS_USR --password-stdin
-                    docker build -t muntaha69/todo-server:${env.SERVER_TAG} ./server
-                    docker push muntaha69/todo-server:${env.SERVER_TAG}
+                    docker build -t $DOCKER_HUB_CREDS_USR/todo-server:${env.SERVER_TAG} ./server
+                    docker push $DOCKER_HUB_CREDS_USR/todo-server:${env.SERVER_TAG}
                 """
             }
         }
