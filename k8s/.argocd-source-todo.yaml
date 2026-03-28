@@ -1,4 +1,4 @@
 kustomize:
   images:
-  - muntaha69/todo-server:1.0.1
-  - muntaha69/todo-client:1.0.6
+  - muntaha69/todo-server:1.0.2
+  - muntaha69/todo-client:1.0.7
